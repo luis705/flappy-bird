@@ -32,6 +32,7 @@ class Bird:
             self.angle -= 2
 
         win.blit(pygame.transform.rotate(self.imgs[math.floor(self.curr_img)], self.angle), (self.x, self.y))
+
         self.move()
 
     def collide(self, window, pipes):
@@ -44,7 +45,7 @@ class Bird:
         if self.y < 0 and self.y + self.height > 0:
             return True
         #  Bottom of the screen
-        if self.y < window.get_height() and self.y + self.height > window.get_height():
+        if self.y < window.get_height() - 100 and self.y + self.height > window.get_height() - 100:
             return True
 
         #  Any pipe
@@ -63,8 +64,7 @@ class Bird:
         """
         self.y += self.y_speed
         self.y_speed += .5
-        if self.curr_img != 0:
-            self.curr_img += .01
+        self.curr_img += .2
         if self.curr_img >= 3:
             self.curr_img = 0
 
@@ -76,4 +76,3 @@ class Bird:
         """
         self.y_speed = -9
         self.angle = 60
-        self.curr_img = 1
