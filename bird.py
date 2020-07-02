@@ -1,26 +1,24 @@
 import pygame
 
-import random
-import os
 import math
+import os
+import random
 
 
 class Bird:
     def __init__(self, x, y):
-        self.width = 34
-        self.height = 24
-        self.x = x - self.width // 2
-        self.y = y
-        self.x_speed = 2
-        self.y_speed = 0
-        self.width = 34
-        self.height = 24
         self.color = ['blue', 'red', 'yellow'][random.randint(0, 2)]
         self.imgs = [pygame.image.load(os.path.join('assets/sprites', f'{self.color}bird-upflap.png')),
                      pygame.image.load(os.path.join('assets/sprites', f'{self.color}bird-midflap.png')),
                      pygame.image.load(os.path.join('assets/sprites', f'{self.color}bird-downflap.png'))]
         self.curr_img = 0
         self.angle = 0
+        self.width = 34
+        self.height = 24
+        self.x = x - self.width // 2
+        self.y = y
+        self.x_speed = 2
+        self.y_speed = 0
 
     def draw(self, win):
         """
@@ -36,23 +34,26 @@ class Bird:
         win.blit(pygame.transform.rotate(self.imgs[math.floor(self.curr_img)], self.angle), (self.x, self.y))
         self.move()
 
-    def collide_top(self):
+    def collide(self, window, pipes):
         """
-        Checks if the bird touched the top of the screen
+        Checks if the bird touched anything
         Returns:
             Bool
         """
-        return self.y < 0 and self.y + self.height > 0
+        #  Top of the screen
+        if self.y < 0 and self.y + self.height > 0:
+            return True
+        #  Bottom of the screen
+        if self.y < window.get_height() and self.y + self.height > window.get_height():
+            return True
 
-    def collide_bottom(self, y):
-        """
-        Checks if the bird touched the bottom of the screen
-        Parameters:
-            y: integer
-        Returns:
-            Bool
-        """
-        return self.y < y and self.y + self.height > y
+        #  Any pipe
+        for pipe in pipes:
+            if self.x > pipe.x and self.x < pipe.x + pipe.width:
+                if self.y >= pipe.y + pipe.opening or self.y < pipe.y:
+                    return True
+
+        return False
 
     def move(self):
         """
@@ -61,7 +62,7 @@ class Bird:
             None
         """
         self.y += self.y_speed
-        self.y_speed += .75
+        self.y_speed += .5
         if self.curr_img != 0:
             self.curr_img += .01
         if self.curr_img >= 3:
@@ -73,6 +74,6 @@ class Bird:
         Returns:
             None
         """
-        self.y_speed = -15
+        self.y_speed = -9
         self.angle = 60
         self.curr_img = 1
