@@ -1,9 +1,11 @@
 import pygame
 
 import os
+import random
 import sys
 
 from bird import Bird
+from pipe import Pipe
 
 
 class Game:
@@ -15,7 +17,8 @@ class Game:
         self.height = 510
         self.win = pygame.display.set_mode((self.width, self.height))
         self.score = 0
-        self.pipes = []
+        self.pipes = [Pipe(self.width + 50, random.randint(60, 400)),
+                      Pipe(self.width + 250, random.randint(60, 400))]
         self.backgrounds = [pygame.transform.scale(pygame.image.load(os.path.join("assets/sprites", "background-day.png")), (self.width, self.height)),
                             pygame.transform.scale(pygame.image.load(os.path.join("assets/sprites", "background-night.png")), (self.width, self.height))]
         self.curr_bg = 0
@@ -53,8 +56,13 @@ class Game:
                 if self.curr_bg >= len(self.backgrounds):
                     self.curr_bg = 0
 
-            if self.bird.collide_top() or self.bird.collide_bottom(self.height):
-                self.game_over
+            if self.bird.collide(self.win, self.pipes):
+                self.game_over()
+
+            for pipe in self.pipes:
+                if pipe.x <= - pipe.width:
+                    pipe.x = 350
+                    pipe.y = random.randint(60, 400)
 
             self.draw()
 
@@ -71,6 +79,8 @@ class Game:
         self.win.blit(self.backgrounds[self.curr_bg], (int(self.bgx[0]), 0))
         self.win.blit(self.backgrounds[self.curr_bg], (int(self.bgx[1]), 0))
         self.bird.draw(self.win)
+        for pipe in self.pipes:
+            pipe.draw(self.win)
         pygame.display.update()
 
     def game_over(self):
