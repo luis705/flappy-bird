@@ -16,14 +16,16 @@ class Game:
         self.width = 310
         self.height = 510
         self.win = pygame.display.set_mode((self.width, self.height))
+        self.ground = pygame.image.load(os.path.join("assets/sprites", "base.png"))
+        self.groundy = self.height - 100
+        self.bgx = [0, self.ground.get_width()]
+        self.bird = Bird(self.width // 2, self.height // 2)
         self.score = 0
-        self.pipes = [Pipe(self.width + 50, random.randint(60, 400)),
-                      Pipe(self.width + 250, random.randint(60, 400))]
+        self.pipes = [Pipe(self.width + 50, random.randint(60, self.groundy - 150)),
+                      Pipe(self.width + 250, random.randint(60, self.groundy - 150))]
         self.backgrounds = [pygame.transform.scale(pygame.image.load(os.path.join("assets/sprites", "background-day.png")), (self.width, self.height)),
                             pygame.transform.scale(pygame.image.load(os.path.join("assets/sprites", "background-night.png")), (self.width, self.height))]
         self.curr_bg = 0
-        self.bgx = [0, self.backgrounds[self.curr_bg].get_width()]
-        self.bird = Bird(self.width // 2, self.height // 2)
 
     def run(self):
         """
@@ -34,12 +36,12 @@ class Game:
         while run:
             clock.tick(60)
 
-            #  Move background in the x axis
+            #  Move ground in the x axis
             self.bgx[0] -= 1.4
             self.bgx[1] -= 1.4
-            if self.bgx[0] < self.backgrounds[self.curr_bg].get_width() * -1:
+            if self.bgx[0] < self.ground.get_width() * -1:
                 self.bgx[0] = self.backgrounds[self.curr_bg].get_width()
-            if self.bgx[1] < self.backgrounds[self.curr_bg].get_width() * -1:
+            if self.bgx[1] < self.ground.get_width() * -1:
                 self.bgx[1] = self.backgrounds[self.curr_bg].get_width()
 
             #  Get game events and handle them
@@ -62,7 +64,7 @@ class Game:
             for pipe in self.pipes:
                 if pipe.x <= - pipe.width:
                     pipe.x = 350
-                    pipe.y = random.randint(60, 400)
+                    pipe.y = random.randint(60, self.groundy - 150)
 
             self.draw()
 
@@ -76,8 +78,9 @@ class Game:
         Returns:
             None
         """
-        self.win.blit(self.backgrounds[self.curr_bg], (int(self.bgx[0]), 0))
-        self.win.blit(self.backgrounds[self.curr_bg], (int(self.bgx[1]), 0))
+        self.win.blit(self.backgrounds[self.curr_bg], (0, 0))
+        self.win.blit(self.ground, (int(self.bgx[0]), self.groundy))
+        self.win.blit(self.ground, (int(self.bgx[1]), self.groundy))
         self.bird.draw(self.win)
         for pipe in self.pipes:
             pipe.draw(self.win)
