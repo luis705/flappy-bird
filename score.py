@@ -17,6 +17,11 @@ class Score:
         self.sound = os.path.join('assets', 'audio', 'point' + sound_ext)
 
     def increase(self):
+        """
+        Increase score value
+        Returns:
+            None
+        """
         self.value += 1
         self.string = str(self.value)
         pygame.mixer.Channel(0).play(pygame.mixer.Sound(self.sound))

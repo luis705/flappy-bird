@@ -93,10 +93,20 @@ class Bird:
         self.angle = 60
 
     def die(self):
+        """
+        Change bird state to dead and plays sound
+        Returns:
+            None
+        """
         self.dead = True
         pygame.mixer.Channel(1).play(pygame.mixer.Sound(self.sounds.get('hit')))
 
     def fall(self, win):
+        """
+        Makes bird fall to the ground and plays the sound
+        Returns:
+            None
+        """
         if self.y + self.height < win.get_height() - 110:
             self.y += self.y_speed
             self.y_speed += .5
