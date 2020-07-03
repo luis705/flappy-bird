@@ -20,6 +20,7 @@ class Pipe:
         self.height = self.img.get_height()
         self.top = self.y - self.height
         self.bottom = self.y + self.opening
+        self.passed = False
 
     def draw(self, win):
         """
