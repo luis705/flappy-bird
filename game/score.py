@@ -9,12 +9,12 @@ class Score:
         self.value = 0
         self.string = str(self.value)
         self.imgs = [pygame.image.load(os.path.join(
-            'assets', 'sprites', str(i) + '.png')) for i in range(10)]
+            '..', 'assets', 'sprites', str(i) + '.png')) for i in range(10)]
         if sys.platform in ['win32', 'cygwin']:
             sound_ext = '.wav'
         else:
             sound_ext = '.ogg'
-        self.sound = os.path.join('assets', 'audio', 'point' + sound_ext)
+        self.sound = os.path.join('..', 'assets', 'audio', 'point' + sound_ext)
 
     def increase(self):
         """

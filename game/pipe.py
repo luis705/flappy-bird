@@ -7,7 +7,7 @@ class Pipe:
     def __init__(self, x, y):
         #  Image setup
         self.img = pygame.transform.scale(pygame.image.load(
-            os.path.join('assets', 'sprites', 'pipe-green.png')), (52, 400))
+            os.path.join('..', 'assets', 'sprites', 'pipe-green.png')), (52, 400))
         self.opening = 120
 
         #  Physics setup
