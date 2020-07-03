@@ -27,6 +27,8 @@ class Game:
         self.backgrounds = [pygame.transform.scale(pygame.image.load(os.path.join("assets", "sprites", "background-day.png")), (self.width, self.height)),
                             pygame.transform.scale(pygame.image.load(os.path.join("assets", "sprites", "background-night.png")), (self.width, self.height))]
         self.curr_bg = random.randint(0, 1)
+        self.game_over_img = pygame.image.load(os.path.join('assets', 'sprites', 'gameover.png'))
+        self.is_over = False
 
         #  Entities setup
         self.bird = Bird(self.width // 2, self.height // 2)
@@ -102,8 +104,15 @@ class Game:
         self.win.blit(self.ground, (int(self.bgx[0]), self.groundy))
         self.win.blit(self.ground, (int(self.bgx[1]), self.groundy))
 
-        #  Draw score and bird
-        self.score.draw(self.win, self.width // 2, 40)
+        #  Draw score and game over sign
+        if self.is_over:
+            self.win.blit(self.game_over_img, ((self.win.get_width() -
+                                                self.game_over_img.get_width()) // 2, 40))
+            self.score.draw(self.win, self.width // 2, self.win.get_height() // 2)
+        else:
+            self.score.draw(self.win, self.width // 2, 40)
+
+        #  Draw bird and update screen
         self.bird.draw(self.win)
         pygame.display.update()
 
@@ -115,6 +124,7 @@ class Game:
         """
         self.bird.die()
         self.x_speed = 0
+        self.is_over = True
 
     def restart(self):
         """
@@ -123,6 +133,7 @@ class Game:
         self.bird = Bird(self.width // 2, self.height // 2)
         self.x_speed = -2
         self.score.value = 0
+        self.is_over = False
         for i in range(len(self.pipes)):
             self.pipes[i] = Pipe(self.width + 50 + 200 * i, random.randint(60, self.groundy - 150))
 
