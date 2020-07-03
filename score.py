@@ -1,6 +1,7 @@
 import pygame
 
 import os
+import sys
 
 
 class Score:
@@ -9,10 +10,16 @@ class Score:
         self.string = str(self.value)
         self.imgs = [pygame.image.load(os.path.join(
             'assets', 'sprites', str(i) + '.png')) for i in range(10)]
+        if sys.platform in ['win32', 'cygwin']:
+            sound_ext = '.wav'
+        else:
+            sound_ext = '.ogg'
+        self.sound = os.path.join('assets', 'audio', 'point' + sound_ext)
 
     def increase(self):
-        self.value += 10000
+        self.value += 1
         self.string = str(self.value)
+        pygame.mixer.Channel(0).play(pygame.mixer.Sound(self.sound))
 
     def draw(self, win, x, y):
         """
