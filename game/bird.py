@@ -10,9 +10,10 @@ class Bird:
     def __init__(self, x, y):
         #  Images setup
         self.color = ['blue', 'red', 'yellow'][random.randint(0, 2)]
-        self.imgs = [pygame.image.load(os.path.join('assets', 'sprites', f'{self.color}bird-upflap.png')),
-                     pygame.image.load(os.path.join('assets', 'sprites', f'{self.color}bird-midflap.png')),
-                     pygame.image.load(os.path.join('assets', 'sprites', f'{self.color}bird-downflap.png'))]
+        self.imgs = [pygame.image.load(os.path.join('..', 'assets', 'sprites', f'{self.color}bird-upflap.png')),
+                     pygame.image.load(os.path.join('..', 'assets', 'sprites',
+                                                    f'{self.color}bird-midflap.png')),
+                     pygame.image.load(os.path.join('..', 'assets', 'sprites', f'{self.color}bird-downflap.png'))]
         self.curr_img = 0
         self.angle = 0
 
@@ -30,9 +31,9 @@ class Bird:
             sound_ext = '.wav'
         else:
             sound_ext = '.ogg'
-        self.sounds = {'wing': os.path.join('assets', 'audio', 'wing' + sound_ext),
-                       'hit': os.path.join('assets', 'audio', 'hit' + sound_ext),
-                       'die': os.path.join('assets', 'audio', 'die' + sound_ext)
+        self.sounds = {'wing': os.path.join('..', 'assets', 'audio', 'wing' + sound_ext),
+                       'hit': os.path.join('..', 'assets', 'audio', 'hit' + sound_ext),
+                       'die': os.path.join('..', 'assets', 'audio', 'die' + sound_ext)
                        }
 
     def draw(self, win):
@@ -78,6 +79,8 @@ class Bird:
         """
         self.y += self.y_speed
         self.y_speed += .5
+        if self.y_speed >= 8:
+            self.y_speed = 8
         self.curr_img += .2
         if self.curr_img >= 3:
             self.curr_img = 0
@@ -89,8 +92,8 @@ class Bird:
             None
         """
         pygame.mixer.Channel(1).play(pygame.mixer.Sound(self.sounds.get('wing')))
-        self.y_speed = -9
-        self.angle = 60
+        self.y_speed = -8
+        self.angle = 50
 
     def die(self):
         """

@@ -20,14 +20,14 @@ class Game:
         self.win = pygame.display.set_mode((self.width, self.height))
 
         #  Images setup
-        self.ground = pygame.image.load(os.path.join("assets", "sprites", "base.png"))
+        self.ground = pygame.image.load(os.path.join('..', 'assets', 'sprites', 'base.png'))
         self.groundy = self.height - 100
         self.bgx = [0, self.ground.get_width()]
         self.x_speed = -2
-        self.backgrounds = [pygame.transform.scale(pygame.image.load(os.path.join("assets", "sprites", "background-day.png")), (self.width, self.height)),
-                            pygame.transform.scale(pygame.image.load(os.path.join("assets", "sprites", "background-night.png")), (self.width, self.height))]
+        self.backgrounds = [pygame.transform.scale(pygame.image.load(os.path.join('..', 'assets', 'sprites', 'background-day.png')), (self.width, self.height)),
+                            pygame.transform.scale(pygame.image.load(os.path.join('..', 'assets', 'sprites', 'background-night.png')), (self.width, self.height))]
         self.curr_bg = random.randint(0, 1)
-        self.game_over_img = pygame.image.load(os.path.join('assets', 'sprites', 'gameover.png'))
+        self.game_over_img = pygame.image.load(os.path.join('..', 'assets', 'sprites', 'gameover.png'))
         self.is_over = False
 
         #  Entities setup
