@@ -47,7 +47,11 @@ class Bird:
         if self.angle > -70:
             self.angle -= 2
 
-        win.blit(pygame.transform.rotate(self.imgs[math.floor(self.curr_img)], self.angle), (self.x, self.y))
+        rotated_image = pygame.transform.rotate(self.imgs[math.floor(self.curr_img)], self.angle)
+        new_rect = rotated_image.get_rect(center=self.imgs[math.floor(
+            self.curr_img)].get_rect(topleft=(self.x, self.y)).center)
+
+        win.blit(rotated_image, new_rect.topleft)
         if not self.dead:
             self.move()
         else:
@@ -81,7 +85,7 @@ class Bird:
         self.y_speed += .5
         if self.y_speed >= 8:
             self.y_speed = 8
-        self.curr_img += .2
+        self.curr_img += .1
         if self.curr_img >= 3:
             self.curr_img = 0
 
