@@ -64,14 +64,13 @@ class Bird:
             Bool
         """
         #  Bottom of the screen
-        if self.y + self.height > win.get_height() - 110:
+        if self.y + self.height >= win.get_height() - 110:
             return True
 
         #  Any pipe
         for pipe in pipes:
-            if self.x > pipe.x and self.x < pipe.x + pipe.width:
-                if self.y >= pipe.y + pipe.opening or self.y < pipe.y:
-                    return True
+            if pipe.collide(self):
+                return True
 
         return False
 
@@ -121,3 +120,6 @@ class Bird:
 
     def hit_sound(self):
         pygame.mixer.Channel(1).play(pygame.mixer.Sound(self.sounds.get('hit')))
+
+    def get_mask(self):
+        return pygame.mask.from_surface(self.imgs[math.floor(self.curr_img)])
