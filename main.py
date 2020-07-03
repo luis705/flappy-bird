@@ -6,6 +6,7 @@ import sys
 
 from bird import Bird
 from pipe import Pipe
+from score import Score
 
 
 class Game:
@@ -13,19 +14,24 @@ class Game:
         """
         Initialize and setup game screen
         """
+        # Window setup
         self.width = 310
         self.height = 510
         self.win = pygame.display.set_mode((self.width, self.height))
-        self.ground = pygame.image.load(os.path.join("assets/sprites", "base.png"))
+
+        #  Images setup
+        self.ground = pygame.image.load(os.path.join("assets", "sprites", "base.png"))
         self.groundy = self.height - 100
         self.bgx = [0, self.ground.get_width()]
+        self.backgrounds = [pygame.transform.scale(pygame.image.load(os.path.join("assets", "sprites", "background-day.png")), (self.width, self.height)),
+                            pygame.transform.scale(pygame.image.load(os.path.join("assets", "sprites", "background-night.png")), (self.width, self.height))]
+        self.curr_bg = random.randint(0, 1)
+
+        #  Entities setup
         self.bird = Bird(self.width // 2, self.height // 2)
-        self.score = 0
         self.pipes = [Pipe(self.width + 50, random.randint(60, self.groundy - 150)),
                       Pipe(self.width + 250, random.randint(60, self.groundy - 150))]
-        self.backgrounds = [pygame.transform.scale(pygame.image.load(os.path.join("assets/sprites", "background-day.png")), (self.width, self.height)),
-                            pygame.transform.scale(pygame.image.load(os.path.join("assets/sprites", "background-night.png")), (self.width, self.height))]
-        self.curr_bg = 0
+        self.score = Score()
 
     def run(self):
         """
@@ -37,8 +43,8 @@ class Game:
             clock.tick(60)
 
             #  Move ground in the x axis
-            self.bgx[0] -= 1.4
-            self.bgx[1] -= 1.4
+            self.bgx[0] -= 2
+            self.bgx[1] -= 2
             if self.bgx[0] < self.ground.get_width() * -1:
                 self.bgx[0] = self.backgrounds[self.curr_bg].get_width()
             if self.bgx[1] < self.ground.get_width() * -1:
@@ -52,16 +58,14 @@ class Game:
                     if event.key == pygame.K_SPACE:
                         self.bird.jump()
 
-            #  Change background after certain scores
-            if self.score % 50 == 0 and self.score != 0:
-                self.curr_bg += 1
-                if self.curr_bg >= len(self.backgrounds):
-                    self.curr_bg = 0
-
             if self.bird.collide(self.win, self.pipes):
                 self.game_over()
 
             for pipe in self.pipes:
+                #  Update score if needed
+                if self.bird.x + self.bird.width == pipe.x:
+                    self.score.increase()
+                #  Replace pipe if needed
                 if pipe.x <= - pipe.width:
                     pipe.x = 350
                     pipe.y = random.randint(60, self.groundy - 150)
@@ -84,6 +88,10 @@ class Game:
         self.bird.draw(self.win)
         for pipe in self.pipes:
             pipe.draw(self.win)
+
+        #  Draw scores
+        self.score.draw(self.win, self.width // 2, 40)
+
         pygame.display.update()
 
     def game_over(self):
