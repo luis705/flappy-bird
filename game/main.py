@@ -4,6 +4,7 @@ import os
 import random
 import sys
 
+from base import Base
 from bird import Bird
 from pipe import Pipe
 from score import Score
@@ -20,9 +21,7 @@ class Game:
         self.win = pygame.display.set_mode((self.width, self.height))
 
         #  Images setup
-        self.ground = pygame.image.load(os.path.join('..', 'assets', 'sprites', 'base.png'))
         self.groundy = self.height - 100
-        self.bgx = [0, self.ground.get_width()]
         self.x_speed = -2
         self.backgrounds = [pygame.transform.scale(pygame.image.load(os.path.join('..', 'assets', 'sprites', 'background-day.png')), (self.width, self.height)),
                             pygame.transform.scale(pygame.image.load(os.path.join('..', 'assets', 'sprites', 'background-night.png')), (self.width, self.height))]
@@ -32,9 +31,10 @@ class Game:
 
         #  Entities setup
         self.bird = Bird(self.width // 2, self.height // 2)
-        self.pipes = [Pipe(self.width + 50, random.randint(60, self.groundy - 150)),
-                      Pipe(self.width + 250, random.randint(60, self.groundy - 150))]
+        self.pipes = [Pipe(self.width + 50, random.randint(60, self.groundy - 150), self.x_speed),
+                      Pipe(self.width + 250, random.randint(60, self.groundy - 150), self.x_speed)]
         self.score = Score()
+        self.base = Base(self.groundy, self.x_speed)
 
         #  Sound setup
         pygame.mixer.init()
@@ -47,14 +47,6 @@ class Game:
         clock = pygame.time.Clock()
         while run:
             clock.tick(60)
-
-            #  Move ground in the x axis
-            self.bgx[0] += self.x_speed
-            self.bgx[1] += self.x_speed
-            if self.bgx[0] < self.ground.get_width() * -1:
-                self.bgx[0] = self.backgrounds[self.curr_bg].get_width()
-            if self.bgx[1] < self.ground.get_width() * -1:
-                self.bgx[1] = self.backgrounds[self.curr_bg].get_width()
 
             #  Get game events and handle them
             for event in pygame.event.get():
@@ -93,16 +85,13 @@ class Game:
         Returns:
             None
         """
-        #  Draw background
+        #  Draw background and bas
         self.win.blit(self.backgrounds[self.curr_bg], (0, 0))
+        self.base.draw(self.win)
 
         #  Draw pipes
         for pipe in self.pipes:
-            pipe.draw(self.win, self.x_speed)
-
-        #  Draw floor
-        self.win.blit(self.ground, (int(self.bgx[0]), self.groundy))
-        self.win.blit(self.ground, (int(self.bgx[1]), self.groundy))
+            pipe.draw(self.win)
 
         #  Draw score and game over sign
         if self.is_over:
@@ -123,19 +112,22 @@ class Game:
             None
         """
         self.bird.die()
-        self.x_speed = 0
         self.is_over = True
+        for pipe in self.pipes:
+            pipe.speed = 0
+        self.base.speed = 0
 
     def restart(self):
         """
         Restart game
         """
         self.bird = Bird(self.width // 2, self.height // 2)
-        self.x_speed = -2
+        self.base.speed = self.x_speed
         self.score.value = 0
         self.is_over = False
         for i in range(len(self.pipes)):
-            self.pipes[i] = Pipe(self.width + 50 + 200 * i, random.randint(60, self.groundy - 150))
+            self.pipes[i] = Pipe(self.width + 50 + 200 * i,
+                                 random.randint(60, self.groundy - 150), self.x_speed)
 
 
 game = Game()
