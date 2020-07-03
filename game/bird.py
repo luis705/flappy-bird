@@ -79,6 +79,8 @@ class Bird:
         """
         self.y += self.y_speed
         self.y_speed += .5
+        if self.y_speed >= 8:
+            self.y_speed = 8
         self.curr_img += .2
         if self.curr_img >= 3:
             self.curr_img = 0
@@ -90,8 +92,8 @@ class Bird:
             None
         """
         pygame.mixer.Channel(1).play(pygame.mixer.Sound(self.sounds.get('wing')))
-        self.y_speed = -9
-        self.angle = 60
+        self.y_speed = -8
+        self.angle = 50
 
     def die(self):
         """
