@@ -85,7 +85,7 @@ class Game:
         Returns:
             None
         """
-        #  Draw background and bas
+        #  Draw background and base
         self.win.blit(self.backgrounds[self.curr_bg], (0, 0))
         self.base.draw(self.win)
 
