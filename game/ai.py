@@ -23,7 +23,7 @@ class Ai:
 
         #  Images setup
         self.groundy = self.height - 100
-        self.x_speed = -2
+        self.x_speed = -4
         self.background = pygame.transform.scale(pygame.image.load(os.path.join(
             '..', 'assets', 'sprites', 'background-day.png')), (self.width, self.height))
 
@@ -115,6 +115,7 @@ class Ai:
                     pipe.y = new_y
                     pipe.passed = False
 
+            self.x_speed = -4 - self.score.value * 0.01
             self.draw()
 
     def draw(self):
@@ -151,4 +152,4 @@ if __name__ == '__main__':
     scores = {}
 
     #  Train and evolve population
-    population.run(Ai, 50)
+    population.run(Ai, 999999)

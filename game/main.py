@@ -76,6 +76,7 @@ class Game:
                     pipe.y = random.randint(60, self.groundy - 150)
                     pipe.passed = False
 
+            self.x_speed = -2 - self.score.value * 0.01
             self.draw()
 
         #  CLose the game
