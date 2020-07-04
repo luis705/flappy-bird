@@ -63,6 +63,10 @@ class Bird:
         Returns:
             Bool
         """
+        #  Top of the screen
+        if self.y <= 0:
+            return True
+
         #  Bottom of the screen
         if self.y + self.height >= win.get_height() - 110:
             return True
@@ -84,7 +88,7 @@ class Bird:
         self.y_speed += .5
         if self.y_speed >= 8:
             self.y_speed = 8
-        self.curr_img += .1
+        self.curr_img += .2
         if self.curr_img >= 3:
             self.curr_img = 0
 

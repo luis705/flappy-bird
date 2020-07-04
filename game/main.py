@@ -66,12 +66,14 @@ class Game:
 
             for pipe in self.pipes:
                 #  Update score if needed
-                if self.bird.x + self.bird.width == pipe.x and self.bird.y < pipe.y + pipe.opening and self.bird.y > pipe.y:
+                if self.bird.x >= pipe.x and not pipe.passed:
                     self.score.increase()
+                    pipe.passed = True
                 #  Replace pipe if needed
                 if pipe.x <= - pipe.width:
                     pipe.x = 350
                     pipe.y = random.randint(60, self.groundy - 150)
+                    pipe.passed = False
 
             self.draw()
 

@@ -18,6 +18,8 @@ class Base:
     def draw(self, win):
         """
         Draw the base on the screen and calls the move method
+        Parameters:
+            win: surface
         Returns:
             None
         """
