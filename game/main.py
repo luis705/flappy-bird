@@ -88,13 +88,13 @@ class Game:
         Returns:
             None
         """
-        #  Draw background and base
+        #  Draw background
         self.win.blit(self.backgrounds[self.curr_bg], (0, 0))
-        self.base.draw(self.win)
 
-        #  Draw pipes
+        #  Draw pipes and bas
         for pipe in self.pipes:
             pipe.draw(self.win)
+        self.base.draw(self.win)
 
         #  Draw score and game over sign
         if self.is_over:
