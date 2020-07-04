@@ -6,10 +6,15 @@ import sys
 
 class Score:
     def __init__(self):
+        #  Value setup
         self.value = 0
-        self.string = str(self.value)
+
+        #  Images setup
         self.imgs = [pygame.image.load(os.path.join(
             '..', 'assets', 'sprites', str(i) + '.png')) for i in range(10)]
+        self.width = self.imgs[0].get_width()
+
+        #  Sound setup
         if sys.platform in ['win32', 'cygwin']:
             sound_ext = '.wav'
         else:
@@ -22,13 +27,23 @@ class Score:
         Returns:
             None
         """
+        #  Increase score and play the sound
         self.value += 1
         self.string = str(self.value)
         pygame.mixer.Channel(0).play(pygame.mixer.Sound(self.sound))
 
+        #  Change the width of the score
+        images = []
+        for i in str(self.value):
+            number = int(i)
+            images.append(self.imgs[number])
+        self.width = 0
+        for image in images:
+            self.width += image.get_width()
+
     def draw(self, win, x, y):
         """
-        Draw the score on the screen !!!!!NEEDS IMPROVEMENT!!!!!
+        Draw the score on the screen
         Prameters:
             win: surface
             x: integer
@@ -36,56 +51,10 @@ class Score:
         Returns:
             None
         """
-        if len(str(self.value)) == 1:
-            win.blit(self.imgs[self.value],
-                     ((x - self.imgs[self.value].get_width(), y)))
 
-        elif len(str(self.value)) == 2:
-            win.blit(self.imgs[int(str(self.value)[0])],
-                     (x - self.imgs[int(str(self.value)[0])].get_width(), y))
-            win.blit(self.imgs[int(str(self.value)[1])],
-                     (x, y))
+        centered_rect = pygame.Rect(((win.get_width() - self.width) // 2, y,
+                                     self.width, self.imgs[0].get_height()))
 
-        elif len(str(self.value)) == 3:
-            hundreds_width = self.imgs[int(str(self.value)[0])].get_width()
-            tenths_width = self.imgs[int(str(self.value)[1])].get_width()
-            units_width = self.imgs[int(str(self.value)[2])].get_width()
-            win.blit(self.imgs[int(str(self.value)[0])],
-                     (x - hundreds_width - tenths_width, y))
-            win.blit(self.imgs[int(str(self.value)[1])],
-                     (x - tenths_width, y))
-            win.blit(self.imgs[int(str(self.value)[2])],
-                     (x - tenths_width + units_width, y))
-
-        elif len(str(self.value)) == 4:
-            thousends_width = self.imgs[int(str(self.value)[0])].get_width()
-            hundreds_width = self.imgs[int(str(self.value)[1])].get_width()
-            tenths_width = self.imgs[int(str(self.value)[2])].get_width()
-            units_width = self.imgs[int(str(self.value)[3])].get_width()
-
-            win.blit(self.imgs[int(str(self.value)[0])],
-                     (x - hundreds_width - thousends_width, y))
-            win.blit(self.imgs[int(str(self.value)[1])],
-                     (x - hundreds_width, y))
-            win.blit(self.imgs[int(str(self.value)[2])],
-                     (x, y))
-            win.blit(self.imgs[int(str(self.value)[3])],
-                     (x + tenths_width, y))
-
-        elif len(str(self.value)) == 5:
-            ten_thousends_width = self.imgs[int(str(self.value)[0])].get_width()
-            thousends_width = self.imgs[int(str(self.value)[1])].get_width()
-            hundreds_width = self.imgs[int(str(self.value)[2])].get_width()
-            tenths_width = self.imgs[int(str(self.value)[3])].get_width()
-            units_width = self.imgs[int(str(self.value)[4])].get_width()
-
-            win.blit(self.imgs[int(str(self.value)[0])],
-                     (x - thousends_width - ten_thousends_width, y))
-            win.blit(self.imgs[int(str(self.value)[1])],
-                     (x - thousends_width, y))
-            win.blit(self.imgs[int(str(self.value)[2])],
-                     (x, y))
-            win.blit(self.imgs[int(str(self.value)[3])],
-                     (x + tenths_width, y))
-            win.blit(self.imgs[int(str(self.value)[4])],
-                     (x + units_width, y))
+        for number in str(self.value):
+            win.blit(self.imgs[int(number)], centered_rect)
+            centered_rect[0] += self.imgs[int(number)].get_width()

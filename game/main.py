@@ -19,6 +19,7 @@ class Game:
         self.width = 310
         self.height = 510
         self.win = pygame.display.set_mode((self.width, self.height))
+        pygame.display.set_caption('Flappy Bird')
 
         #  Images setup
         self.groundy = self.height - 100
