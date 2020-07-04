@@ -30,6 +30,8 @@ class Pipe:
         Returns:
             None
         """
+        self.top = self.y - self.height
+        self.bottom = self.y + self.opening
         if self.x + self.width > 0 and self.x < win.get_width():
             win.blit(self.top_img, (self.x, self.top))
             win.blit(self.bottom_img, (self.x, self.bottom))
