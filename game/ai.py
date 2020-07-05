@@ -42,6 +42,8 @@ class Ai:
         self.config = config
         self.nets = []
         self.ge = []
+        self.scores = []
+        self.fitnesses = []
         for _, genome in self.genomes:
             net = neat.nn.FeedForwardNetwork.create(genome, config)
             self.nets.append(net)
@@ -71,39 +73,42 @@ class Ai:
             else:
                 break
 
-            #  For each bird, check if it must jump
             for x, bird in enumerate(self.birds):
                 self.ge[x].fitness += 1
 
+                #  For each bird, check if it must jump
                 inputs = bird.y_speed, self.x_speed, abs(
                     bird.y - self.pipes[pipe_ind].y), abs(bird.y - self.pipes[pipe_ind].bottom), abs(bird.x - self.pipes[pipe_ind].x)
-
                 output = self.nets[x].activate(inputs)
 
                 if output[0] > 0.5:
                     bird.jump()
 
-            #  For each bird, check if it is dead
-            for x, bird in enumerate(self.birds):
+                #  Check i the bird is dead
                 if bird.collide(self.win, self.pipes):
-                    #  If it was the last bird, write maximum score in a file
-                    if len(self.birds) == 1:
-                        scores[len(scores) + 1] = self.score.value
-                        with open('scores.json', mode='w') as f:
-                            json.dump(scores, f, indent=4)
+
+                    self.ge[x].fitness -= 10
+
+                    #  Kill bird and add its fitness and score to lists
+                    bird.die()
+                    self.scores.append(self.score.value)
+                    self.fitnesses.append(self.ge[x].fitness)
 
                     #  Change genomes
-                    self.ge[x].fitness -= 10
                     self.birds.pop(x)
                     self.nets.pop(x)
                     self.ge.pop(x)
+
+                    #  If it was the last bird, write fitnesses and scores in a file
+                    if len(self.birds) == 0:
+                        self.write_records()
 
             for pipe in self.pipes:
                 #  Update score if needed
                 for bird in self.birds:
                     if bird.x >= pipe.x and not pipe.passed:
                         for g in self.ge:
-                            g.fitness += 5
+                            g.fitness += 10
                         self.score.increase()
                         pipe.passed = True
                 #  Replace pipe if needed
@@ -133,8 +138,30 @@ class Ai:
             bird.draw(self.win)
         pygame.display.update()
 
+    def write_records(self):
+        """
+        Writes the data from the generation into the json file.
+        It is called every generation for the case in wich a bird
+        gets invincible, this way the data won't be lost
+        Returns:
+            None
+        """
+        #  Get scores min, mean and max
+        scores_dict = {'min': min(self.scores), 'mean': sum(self.scores) /
+                       len(self.scores), 'max': max(self.scores)}
 
-if __name__ == '__main__':
+        #  Get fitness min, mean and max
+        fitness_dict = {'min': min(self.fitnesses), 'mean': sum(self.fitnesses) /
+                        len(self.fitnesses), 'max': max(self.fitnesses)}
+
+        #  Create dictionary and dump it into file
+        scores[f'gen_{len(scores)}'] = {'scores': scores_dict, 'fitness': fitness_dict}
+        with open('scores.json', mode='w') as records:
+            json.dump(scores, records, indent=2)
+
+
+def main():
+
     #  Get config path and generate configurations for the neural network
     local_dir = os.path.dirname(__file__)
     config_path = os.path.join(local_dir, 'config.txt')
@@ -148,8 +175,11 @@ if __name__ == '__main__':
     stats = neat.StatisticsReporter()
     population.add_reporter(stats)
 
+    #  Train and evolve population
+    population.run(Ai, 100)
+
+
+if __name__ == '__main__':
     #  Scores dictionary
     scores = {}
-
-    #  Train and evolve population
-    population.run(Ai, 999999)
+    main()

@@ -1,52 +1,1202 @@
 {
-    "1": 10,
-    "2": 12,
-    "3": 6,
-    "4": 8,
-    "5": 8,
-    "6": 28,
-    "7": 18,
-    "8": 18,
-    "9": 12,
-    "10": 6,
-    "11": 7,
-    "12": 46,
-    "13": 34,
-    "14": 46,
-    "15": 12,
-    "16": 8,
-    "17": 4,
-    "18": 8,
-    "19": 6,
-    "20": 10,
-    "21": 6,
-    "22": 24,
-    "23": 26,
-    "24": 10,
-    "25": 22,
-    "26": 10,
-    "27": 58,
-    "28": 36,
-    "29": 30,
-    "30": 18,
-    "31": 12,
-    "32": 12,
-    "33": 8,
-    "34": 10,
-    "35": 14,
-    "36": 12,
-    "37": 10,
-    "38": 20,
-    "39": 6,
-    "40": 6,
-    "41": 32,
-    "42": 54,
-    "43": 34,
-    "44": 66,
-    "45": 34,
-    "46": 22,
-    "47": 10,
-    "48": 8,
-    "49": 6,
-    "50": 32
+  "gen_0": {
+    "scores": {
+      "min": 0,
+      "mean": 0.01,
+      "max": 1
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 14.06,
+      "max": 85
+    }
+  },
+  "gen_1": {
+    "scores": {
+      "min": 0,
+      "mean": 0.07,
+      "max": 3
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 25.5,
+      "max": 204
+    }
+  },
+  "gen_2": {
+    "scores": {
+      "min": 0,
+      "mean": 0.47,
+      "max": 19
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 49.82,
+      "max": 1175
+    }
+  },
+  "gen_3": {
+    "scores": {
+      "min": 0,
+      "mean": 1.79,
+      "max": 58
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 122.39,
+      "max": 3533
+    }
+  },
+  "gen_4": {
+    "scores": {
+      "min": 0,
+      "mean": 3.79,
+      "max": 68
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 243.59,
+      "max": 4140
+    }
+  },
+  "gen_5": {
+    "scores": {
+      "min": 0,
+      "mean": 0.75,
+      "max": 6
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 59.58,
+      "max": 384
+    }
+  },
+  "gen_6": {
+    "scores": {
+      "min": 0,
+      "mean": 1.6,
+      "max": 55
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 110.91,
+      "max": 3351
+    }
+  },
+  "gen_7": {
+    "scores": {
+      "min": 0,
+      "mean": 5.64,
+      "max": 47
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 351.17,
+      "max": 2867
+    }
+  },
+  "gen_8": {
+    "scores": {
+      "min": 0,
+      "mean": 8.22,
+      "max": 29
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 512.9,
+      "max": 1781
+    }
+  },
+  "gen_9": {
+    "scores": {
+      "min": 0,
+      "mean": 0.65,
+      "max": 10
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 52.56,
+      "max": 595
+    }
+  },
+  "gen_10": {
+    "scores": {
+      "min": 0,
+      "mean": 3.06,
+      "max": 79
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 195.89,
+      "max": 4802
+    }
+  },
+  "gen_11": {
+    "scores": {
+      "min": 0,
+      "mean": 3.05,
+      "max": 33
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 198.75,
+      "max": 2019
+    }
+  },
+  "gen_12": {
+    "scores": {
+      "min": 0,
+      "mean": 0.24,
+      "max": 1
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 32.2,
+      "max": 88
+    }
+  },
+  "gen_13": {
+    "scores": {
+      "min": 0,
+      "mean": 5.01,
+      "max": 67
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 317.21,
+      "max": 4052
+    }
+  },
+  "gen_14": {
+    "scores": {
+      "min": 0,
+      "mean": 8.43,
+      "max": 55
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 526.11,
+      "max": 3349
+    }
+  },
+  "gen_15": {
+    "scores": {
+      "min": 0,
+      "mean": 9.67,
+      "max": 57
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 598.5,
+      "max": 3475
+    }
+  },
+  "gen_16": {
+    "scores": {
+      "min": 0,
+      "mean": 16.62,
+      "max": 67
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1018.31,
+      "max": 4080
+    }
+  },
+  "gen_17": {
+    "scores": {
+      "min": 0,
+      "mean": 10.01,
+      "max": 45
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 619.87,
+      "max": 2749
+    }
+  },
+  "gen_18": {
+    "scores": {
+      "min": 0,
+      "mean": 12.69,
+      "max": 77
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 780.17,
+      "max": 4685
+    }
+  },
+  "gen_19": {
+    "scores": {
+      "min": 0,
+      "mean": 7.78,
+      "max": 110
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 485.56,
+      "max": 6648
+    }
+  },
+  "gen_20": {
+    "scores": {
+      "min": 0,
+      "mean": 8.32,
+      "max": 48
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 516.7,
+      "max": 2928
+    }
+  },
+  "gen_21": {
+    "scores": {
+      "min": 0,
+      "mean": 5.58,
+      "max": 54
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 351.43,
+      "max": 3291
+    }
+  },
+  "gen_22": {
+    "scores": {
+      "min": 0,
+      "mean": 5.23,
+      "max": 37
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 333.34,
+      "max": 2259
+    }
+  },
+  "gen_23": {
+    "scores": {
+      "min": 0,
+      "mean": 4.9,
+      "max": 58
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 309.19,
+      "max": 3535
+    }
+  },
+  "gen_24": {
+    "scores": {
+      "min": 0,
+      "mean": 6.67,
+      "max": 57
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 415.41,
+      "max": 3471
+    }
+  },
+  "gen_25": {
+    "scores": {
+      "min": 0,
+      "mean": 8.56,
+      "max": 69
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 532.51,
+      "max": 4199
+    }
+  },
+  "gen_26": {
+    "scores": {
+      "min": 0,
+      "mean": 6.83,
+      "max": 25
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 428.74,
+      "max": 1539
+    }
+  },
+  "gen_27": {
+    "scores": {
+      "min": 0,
+      "mean": 3.6,
+      "max": 96
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 235.28,
+      "max": 5797
+    }
+  },
+  "gen_28": {
+    "scores": {
+      "min": 0,
+      "mean": 4.96,
+      "max": 72
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 315.16,
+      "max": 4380
+    }
+  },
+  "gen_29": {
+    "scores": {
+      "min": 0,
+      "mean": 15.84,
+      "max": 285
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 974.67,
+      "max": 17265
+    }
+  },
+  "gen_30": {
+    "scores": {
+      "min": 0,
+      "mean": 1.17,
+      "max": 3
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 85.24,
+      "max": 208
+    }
+  },
+  "gen_31": {
+    "scores": {
+      "min": 0,
+      "mean": 7.3,
+      "max": 11
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 460.06,
+      "max": 692
+    }
+  },
+  "gen_32": {
+    "scores": {
+      "min": 0,
+      "mean": 0.23,
+      "max": 1
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 28.22,
+      "max": 88
+    }
+  },
+  "gen_33": {
+    "scores": {
+      "min": 0,
+      "mean": 2.43,
+      "max": 26
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 164.36,
+      "max": 1596
+    }
+  },
+  "gen_34": {
+    "scores": {
+      "min": 0,
+      "mean": 7.04,
+      "max": 61
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 442.39,
+      "max": 3713
+    }
+  },
+  "gen_35": {
+    "scores": {
+      "min": 0,
+      "mean": 1.63,
+      "max": 40
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 111.86,
+      "max": 2413
+    }
+  },
+  "gen_36": {
+    "scores": {
+      "min": 0,
+      "mean": 0.27,
+      "max": 2
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 34.67,
+      "max": 123
+    }
+  },
+  "gen_37": {
+    "scores": {
+      "min": 0,
+      "mean": 1.93,
+      "max": 82
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 132.94,
+      "max": 4959
+    }
+  },
+  "gen_38": {
+    "scores": {
+      "min": 0,
+      "mean": 2.26,
+      "max": 21
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 156.25,
+      "max": 1291
+    }
+  },
+  "gen_39": {
+    "scores": {
+      "min": 0,
+      "mean": 8.14,
+      "max": 129
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 505.85,
+      "max": 7825
+    }
+  },
+  "gen_40": {
+    "scores": {
+      "min": 0,
+      "mean": 15.69,
+      "max": 120
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 962.42,
+      "max": 7280
+    }
+  },
+  "gen_41": {
+    "scores": {
+      "min": 0,
+      "mean": 7.666666666666667,
+      "max": 18
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 476.17171717171715,
+      "max": 1089
+    }
+  },
+  "gen_42": {
+    "scores": {
+      "min": 0,
+      "mean": 2.95,
+      "max": 37
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 190.42,
+      "max": 2259
+    }
+  },
+  "gen_43": {
+    "scores": {
+      "min": 0,
+      "mean": 30.58,
+      "max": 413
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1861.17,
+      "max": 25010
+    }
+  },
+  "gen_44": {
+    "scores": {
+      "min": 0,
+      "mean": 8.22,
+      "max": 39
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 513.81,
+      "max": 2386
+    }
+  },
+  "gen_45": {
+    "scores": {
+      "min": 0,
+      "mean": 5.21,
+      "max": 72
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 327.78,
+      "max": 4380
+    }
+  },
+  "gen_46": {
+    "scores": {
+      "min": 0,
+      "mean": 18.72,
+      "max": 127
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1147.21,
+      "max": 7708
+    }
+  },
+  "gen_47": {
+    "scores": {
+      "min": 0,
+      "mean": 0.64,
+      "max": 38
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 52.7,
+      "max": 2291
+    }
+  },
+  "gen_48": {
+    "scores": {
+      "min": 0,
+      "mean": 1.696969696969697,
+      "max": 61
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 120.73737373737374,
+      "max": 3712
+    }
+  },
+  "gen_49": {
+    "scores": {
+      "min": 0,
+      "mean": 2.525252525252525,
+      "max": 10
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 165.989898989899,
+      "max": 632
+    }
+  },
+  "gen_50": {
+    "scores": {
+      "min": 0,
+      "mean": 6.38,
+      "max": 83
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 403.29,
+      "max": 5041
+    }
+  },
+  "gen_51": {
+    "scores": {
+      "min": 0,
+      "mean": 12.34,
+      "max": 31
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 763.61,
+      "max": 1902
+    }
+  },
+  "gen_52": {
+    "scores": {
+      "min": 0,
+      "mean": 27.46,
+      "max": 110
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1675.16,
+      "max": 6682
+    }
+  },
+  "gen_53": {
+    "scores": {
+      "min": 0,
+      "mean": 11.15,
+      "max": 144
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 694.33,
+      "max": 8736
+    }
+  },
+  "gen_54": {
+    "scores": {
+      "min": 0,
+      "mean": 1.54,
+      "max": 36
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 104.88,
+      "max": 2202
+    }
+  },
+  "gen_55": {
+    "scores": {
+      "min": 0,
+      "mean": 12.45,
+      "max": 64
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 768.89,
+      "max": 3899
+    }
+  },
+  "gen_56": {
+    "scores": {
+      "min": 0,
+      "mean": 13.69,
+      "max": 44
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 840.76,
+      "max": 2657
+    }
+  },
+  "gen_57": {
+    "scores": {
+      "min": 0,
+      "mean": 14.84,
+      "max": 100
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 915.21,
+      "max": 6074
+    }
+  },
+  "gen_58": {
+    "scores": {
+      "min": 0,
+      "mean": 0.37,
+      "max": 1
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 35.69,
+      "max": 88
+    }
+  },
+  "gen_59": {
+    "scores": {
+      "min": 0,
+      "mean": 8.138613861386139,
+      "max": 114
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 507.13861386138615,
+      "max": 6890
+    }
+  },
+  "gen_60": {
+    "scores": {
+      "min": 0,
+      "mean": 16.0,
+      "max": 34
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 989.5148514851485,
+      "max": 2084
+    }
+  },
+  "gen_61": {
+    "scores": {
+      "min": 0,
+      "mean": 39.755102040816325,
+      "max": 205
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 2417.683673469388,
+      "max": 12428
+    }
+  },
+  "gen_62": {
+    "scores": {
+      "min": 0,
+      "mean": 31.816326530612244,
+      "max": 124
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1940.2755102040817,
+      "max": 7528
+    }
+  },
+  "gen_63": {
+    "scores": {
+      "min": 0,
+      "mean": 4.673469387755102,
+      "max": 64
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 300.0204081632653,
+      "max": 3895
+    }
+  },
+  "gen_64": {
+    "scores": {
+      "min": 0,
+      "mean": 6.575757575757576,
+      "max": 17
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 410.80808080808083,
+      "max": 1055
+    }
+  },
+  "gen_65": {
+    "scores": {
+      "min": 0,
+      "mean": 13.12,
+      "max": 24
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 815.17,
+      "max": 1479
+    }
+  },
+  "gen_66": {
+    "scores": {
+      "min": 0,
+      "mean": 7.32,
+      "max": 36
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 460.22,
+      "max": 2199
+    }
+  },
+  "gen_67": {
+    "scores": {
+      "min": 0,
+      "mean": 7.396039603960396,
+      "max": 24
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 468.6930693069307,
+      "max": 1475
+    }
+  },
+  "gen_68": {
+    "scores": {
+      "min": 0,
+      "mean": 3.3465346534653464,
+      "max": 34
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 211.58415841584159,
+      "max": 2084
+    }
+  },
+  "gen_69": {
+    "scores": {
+      "min": 0,
+      "mean": 18.623762376237625,
+      "max": 52
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1144.049504950495,
+      "max": 3173
+    }
+  },
+  "gen_70": {
+    "scores": {
+      "min": 0,
+      "mean": 17.75,
+      "max": 46
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1087.91,
+      "max": 2810
+    }
+  },
+  "gen_71": {
+    "scores": {
+      "min": 0,
+      "mean": 3.46,
+      "max": 36
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 229.35,
+      "max": 2204
+    }
+  },
+  "gen_72": {
+    "scores": {
+      "min": 0,
+      "mean": 8.191919191919192,
+      "max": 85
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 511.6666666666667,
+      "max": 5166
+    }
+  },
+  "gen_73": {
+    "scores": {
+      "min": 0,
+      "mean": 47.41414141414141,
+      "max": 104
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 2889.2020202020203,
+      "max": 6317
+    }
+  },
+  "gen_74": {
+    "scores": {
+      "min": 0,
+      "mean": 9.57,
+      "max": 57
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 596.36,
+      "max": 3473
+    }
+  },
+  "gen_75": {
+    "scores": {
+      "min": 0,
+      "mean": 9.408163265306122,
+      "max": 110
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 589.8877551020408,
+      "max": 6679
+    }
+  },
+  "gen_76": {
+    "scores": {
+      "min": 0,
+      "mean": 19.595959595959595,
+      "max": 37
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1203.2323232323233,
+      "max": 2265
+    }
+  },
+  "gen_77": {
+    "scores": {
+      "min": 0,
+      "mean": 27.76,
+      "max": 81
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1695.29,
+      "max": 4904
+    }
+  },
+  "gen_78": {
+    "scores": {
+      "min": 0,
+      "mean": 15.108910891089108,
+      "max": 40
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 935.5247524752475,
+      "max": 2447
+    }
+  },
+  "gen_79": {
+    "scores": {
+      "min": 0,
+      "mean": 25.613861386138613,
+      "max": 69
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1567.3168316831684,
+      "max": 4201
+    }
+  },
+  "gen_80": {
+    "scores": {
+      "min": 0,
+      "mean": 6.891089108910891,
+      "max": 27
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 435.9009900990099,
+      "max": 1660
+    }
+  },
+  "gen_81": {
+    "scores": {
+      "min": 0,
+      "mean": 8.35,
+      "max": 50
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 516.1,
+      "max": 3047
+    }
+  },
+  "gen_82": {
+    "scores": {
+      "min": 0,
+      "mean": 5.94,
+      "max": 138
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 374.78,
+      "max": 8341
+    }
+  },
+  "gen_83": {
+    "scores": {
+      "min": 0,
+      "mean": 13.51,
+      "max": 78
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 826.56,
+      "max": 4707
+    }
+  },
+  "gen_84": {
+    "scores": {
+      "min": 0,
+      "mean": 40.24,
+      "max": 162
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 2454.3,
+      "max": 9823
+    }
+  },
+  "gen_85": {
+    "scores": {
+      "min": 0,
+      "mean": 6.74,
+      "max": 14
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 427.02,
+      "max": 870
+    }
+  },
+  "gen_86": {
+    "scores": {
+      "min": 0,
+      "mean": 1.71,
+      "max": 12
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 110.92,
+      "max": 752
+    }
+  },
+  "gen_87": {
+    "scores": {
+      "min": 0,
+      "mean": 1.7,
+      "max": 5
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 123.88,
+      "max": 329
+    }
+  },
+  "gen_88": {
+    "scores": {
+      "min": 0,
+      "mean": 11.26,
+      "max": 38
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 700.28,
+      "max": 2326
+    }
+  },
+  "gen_89": {
+    "scores": {
+      "min": 0,
+      "mean": 19.83,
+      "max": 31
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1222.14,
+      "max": 1902
+    }
+  },
+  "gen_90": {
+    "scores": {
+      "min": 0,
+      "mean": 16.1,
+      "max": 94
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 982.43,
+      "max": 5713
+    }
+  },
+  "gen_91": {
+    "scores": {
+      "min": 0,
+      "mean": 23.98,
+      "max": 106
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1458.08,
+      "max": 6434
+    }
+  },
+  "gen_92": {
+    "scores": {
+      "min": 0,
+      "mean": 24.53,
+      "max": 72
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1501.2,
+      "max": 4382
+    }
+  },
+  "gen_93": {
+    "scores": {
+      "min": 0,
+      "mean": 4.89,
+      "max": 7
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 316.57,
+      "max": 450
+    }
+  },
+  "gen_94": {
+    "scores": {
+      "min": 0,
+      "mean": 6.87,
+      "max": 12
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 435.22,
+      "max": 753
+    }
+  },
+  "gen_95": {
+    "scores": {
+      "min": 0,
+      "mean": 17.4,
+      "max": 142
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 1061.64,
+      "max": 8582
+    }
+  },
+  "gen_96": {
+    "scores": {
+      "min": 0,
+      "mean": 6.2,
+      "max": 9
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 397.37,
+      "max": 571
+    }
+  },
+  "gen_97": {
+    "scores": {
+      "min": 0,
+      "mean": 1.05,
+      "max": 11
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 84.35,
+      "max": 689
+    }
+  },
+  "gen_98": {
+    "scores": {
+      "min": 0,
+      "mean": 5.23,
+      "max": 16
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 338.78,
+      "max": 995
+    }
+  },
+  "gen_99": {
+    "scores": {
+      "min": 0,
+      "mean": 8.03960396039604,
+      "max": 57
+    },
+    "fitness": {
+      "min": 2,
+      "mean": 506.0693069306931,
+      "max": 3471
+    }
+  }
 }
