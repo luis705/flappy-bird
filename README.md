@@ -64,7 +64,7 @@ pip install pygame neat-python
 
 
 <h2>Using</h2>
-<p>To use the manager just open the terminal inside the game folder and run main.py with</p>
+<p>To play the game just open the terminal inside the game folder and run main.py with</p>
 
 ```
 python3 main.py
