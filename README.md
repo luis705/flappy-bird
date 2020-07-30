@@ -126,4 +126,4 @@ pythohn3 ai.py
 
 <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
 
-This project is licensed under the MIT license - se the <a href="https://github.com/luis705/flappy-bird/blob/master/LICENSE">LICENSE</a> file for details
+This project is licensed under the MIT license - see the <a href="https://github.com/luis705/flappy-bird/blob/master/LICENSE">LICENSE</a> file for details
